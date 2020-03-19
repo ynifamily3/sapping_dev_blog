@@ -12,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="SAPPING - Dev blog" />
+      <SEO title="Dev blog" />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         const image = node.frontmatter.image || null
