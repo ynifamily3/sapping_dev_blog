@@ -1,6 +1,6 @@
 ---
 title: Frontend 개발환경의 이해와 웹팩 기본 - 바벨편
-date: "2020-08-20T01:40:00.000Z"
+date: "2020-08-28T01:40:00.000Z"
 description: "프론트엔드 개발환경의 이해와 웹팩 기본 - 바벨편"
 tags: ["개발", "webpack", "nodejs", "babel"]
 ---
@@ -30,7 +30,7 @@ tags: ["개발", "webpack", "nodejs", "babel"]
 - 기본적으로 바벨은 코드를 받아서 코드를 반환한다. 바벨 함수를 정의한다면 이런 모습이 될 것이다.
 
 ```jsx
-[const babel = code => code;](https://babeljs.io/docs/en/plugins) // https://babeljs.io/docs/en/plugins
+const babel = code => code; # https://babeljs.io/docs/en/plugins
 ```
 
 - 바벨은 파싱과 출력만 담당하고 변환 작업은 다른 모듈이 처리하는데 이것을 "플러그인"이라고 한다.
@@ -79,7 +79,7 @@ module.exports = function myBabelPlugin() {
 }
 ```
 
-![Untitled%201.png](Untitled%201.png)
+![Untitled_1.png](Untitled_1.png)
 
 ## 플러그인 사용하기
 
@@ -185,7 +185,7 @@ module.exports = {
 }
 ```
 
-![Untitled%202.png](Untitled%202.png)
+![Untitled_2.png](Untitled_2.png)
 
 [caniuse.com](https://caniuse.com/#search=const) 에서 지원하는 지 검사할 수 있다.
 
@@ -195,7 +195,7 @@ module.exports = {
 
 이럴 때는 어떻게 해야 하는가? 폴리필을 사용하여야 한다.
 
-![Untitled%203.png](Untitled%203.png)
+![Untitled_3.png](Untitled_3.png)
 
 브라우저는 현재 스코프에서 시작해 전역까지 Promise라는 이름을 찾으려고 시도할 것이다. 그러나 스코프 어디에도 Promise란 이름이 없기 때문에 레퍼런스 에러를 발생하고 프로그램이 죽은 것이다. 바벨은 ECMAScript2015+를 ECMAScript5 버전으로 변환할 수 있는 것만 빌드한다. 그렇지 못한 것들은 "폴리필"이라고 부르는 코드 조각을 추가해서 해결한다.
 
