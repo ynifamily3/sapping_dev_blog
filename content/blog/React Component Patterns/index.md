@@ -197,15 +197,17 @@ class RadioImageForm extends React.Component<Props, State> {
         <form>
           {// 그럼 여기서 우리는 이 모든 this.props.children을 가져가서 그 props들을 가지고 있는 복사본을 만들
           // 수 있을 것이다.
-          React.Children.map(this.props.children, (child: React.ReactElement) =>
-            // element를 시작점으로 사용하여 새로운 리액트 엘레먼트를 클론하고 리턴한다.
-            // 결과 element는 새로운 props들이 섈로우하게 합쳐진 element의 props를 갖게 된다.
-            // 새로운 children은 존재하는 children을 대신하게 될 것이다.
-            React.cloneElement(child, {
-              currentValue,
-              onChange,
-              defaultValue,
-            })
+          React.Children.map(
+            this.props.children as React.ReactElement,
+            (child: React.ReactElement) =>
+              // element를 시작점으로 사용하여 새로운 리액트 엘레먼트를 클론하고 리턴한다.
+              // 결과 element는 새로운 props들이 섈로우하게 합쳐진 element의 props를 갖게 된다.
+              // 새로운 children은 존재하는 children을 대신하게 될 것이다.
+              React.cloneElement(child, {
+                currentValue,
+                onChange,
+                defaultValue,
+              })
           )}
         </form>
       </RadioImageFormWrapper>
@@ -276,7 +278,7 @@ render(): React.ReactElement {
     <RadioImageFormWrapper>
       <form>
         {
-          React.Children.map(this.props.children,
+          React.Children.map(this.props.children as React.ReactElement,
             (child: React.ReactElement) =>
               React.cloneElement(child, {
                 currentValue,
